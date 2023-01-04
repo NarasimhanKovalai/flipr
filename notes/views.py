@@ -5,6 +5,13 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
+@api_view(['GET'])
+def base(request):
+    if request.method=='GET':
+        return{
+            'Message':'Hello world'
+        }
+
 @api_view(['GET', 'POST'])
 def Topic_list(request, format=None):
 
