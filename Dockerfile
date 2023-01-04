@@ -7,5 +7,5 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 COPY . .
-HEALTHCHECK CMD cd .. || exit 1
+HEALTHCHECK CMD curl --fail http://0.0.0.0:8000/swagger/ || exit 1
 CMD [ "python3", "manage.py", "runserver", "0.0.0.0:8000", "--noreload"]
